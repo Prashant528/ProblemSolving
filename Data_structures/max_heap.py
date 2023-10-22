@@ -2,7 +2,6 @@ def max_heapify(arr):
     '''
     Utility: Constructs a max_heap from the given array.
     '''
-    index_limit = len(arr)-1
 
     for i in range(len(arr)):
         j = i
@@ -41,3 +40,5 @@ print("Heapsorting ",arr1, " = ", heapsort(arr1))
 arr2 = [7,9,2,4,6,1,0]
 print("Heapsorting ",arr2, " = ", heapsort(arr2))
 
+arr2 = [6,5,4,3,2,1]
+print("Heapsorting ",arr2, " = ", heapsort(arr2))
