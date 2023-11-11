@@ -1,0 +1,49 @@
+def find_forest(node, forests):
+    '''
+    Utility: Checks for the forests of the node. Returns the index of forest if found. Else, returns None.
+    '''
+    for forest in forests:
+        for edge in forest:
+            if edge[0]==node or edge[1] ==node:
+                return forests.index(forest)
+    return None
+
+def MST_Kruskal(edges):
+    edges.sort(key = lambda i:i[2])
+    forests = []
+
+    for edge in edges:
+        if edge[0]!=edge[1]:
+            #get the indices of the forests
+            node1_forest = find_forest(edge[0], forests)
+            node2_forest = find_forest(edge[1], forests)
+            if node1_forest==None and node2_forest==None:
+                forests.append([edge])
+            elif node1_forest==None and node2_forest!=None:
+                forests[node2_forest].append(edge)
+            elif node2_forest==None and node1_forest!=None:
+                forests[node1_forest].append(edge)
+            elif node1_forest!=None and node2_forest!=None and node1_forest!=node2_forest:
+                #this is the case for both nodes lying in two different forests.
+                joined_forest = forests[node1_forest] + forests[node2_forest] + [edge]
+                #remove the individual forests
+                forests.pop(max(node1_forest, node2_forest))
+                forests.pop(min(node1_forest, node2_forest))
+                #add the joined forest
+                forests.append(joined_forest)
+    #formatting the output
+    final_forest = forests[0]
+    total_weight = 0
+    new_edge_list = []
+    for edges in final_forest:
+        (node1, node2) = edges[0], edges[1]
+        new_edge_list.append((node1, node2))
+        total_weight += edges[2]
+    return total_weight, new_edge_list
+
+edges1 = [(0,1,1), (0,2,5), (1,2,1), (2,3,2), (1,3,6)]
+print(MST_Kruskal(edges1))
+edges2 = [(0, 1, 2), (0, 3, 6), (1, 2, 3), (1, 3, 8), (1, 4, 5), (2, 4, 7), (3, 4, 9)]
+print(MST_Kruskal(edges2))
+edges3 = [(1,2,9),(1,3,4),(2,5,8), (5,4,5), (4,3,2), (3,6,7), (6,7,3), (7,5,6), (5,9,11), (9,7,12), (7,8,16), (6,8,14)]
+print(MST_Kruskal(edges3))

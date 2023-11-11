@@ -55,13 +55,13 @@ def remove_first(arr):
         child2 = 2*new_pos+2
     return first_element, arr_new
 
-#Assumption: The input array is heap as stated in the question.
-arr0 = [0,1,5,2,3,6]
-print("After inserting 2:", insert(arr0, 2))
-print("The first element = ", first(arr0))
-first_element,new_arr = remove_first(arr0)
-print("The first element = ", first_element)
-print("New array after removal = ", new_arr)
+# #Assumption: The input array is heap as stated in the question.
+# arr0 = [0,1,5,2,3,6]
+# print("After inserting 2:", insert(arr0, 2))
+# print("The first element = ", first(arr0))
+# first_element,new_arr = remove_first(arr0)
+# print("The first element = ", first_element)
+# print("New array after removal = ", new_arr)
 
 #Assumption: The input array is heap as stated in the question.
 arr0 = []
@@ -69,4 +69,16 @@ print("The first element = ", first(arr0))
 first_element,new_arr = remove_first(arr0)
 print("The first element = ", first_element)
 print("New array after removal = ", new_arr)
-print("After inserting 2:", insert(arr0, 2))
+print("After inserting 2:", insert(arr0, 19))
+print("After inserting 2:", insert(arr0, 6))
+print("After inserting 2:", insert(arr0, 8))
+print("After inserting 2:", insert(arr0, 11))
+print("After inserting 2:", insert(arr0, 4))
+print("After inserting 2:", insert(arr0, 5))
+first_element,new_arr = remove_first(arr0)
+print("New array after removal = ", new_arr)
+first_element,new_arr2 = remove_first(new_arr)
+print("New array after removal = ", new_arr2)
+
+
+
