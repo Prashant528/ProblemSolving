@@ -1,7 +1,7 @@
-# def arrange(n):
-#     if n==0 or n==1:
-#         return 1
-#     return arrange(n-1)+arrange(n-2)
+def arrange(n):
+    if n==0 or n==1:
+        return 1
+    return arrange(n-1)+arrange(n-2)
 
 def arrange(n, memo={}):
     if n in memo:

@@ -1,4 +1,4 @@
-def knapsack(items, weight_limit):
+def knapsack(items, weight_limit, memo = []):
     if weight_limit <= 0:
         return 0
     if len(items)==1:
